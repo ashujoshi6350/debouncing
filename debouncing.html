@@ -5,21 +5,18 @@
 	<script>
 		let button = document.getElementById("button");
 
-		button.addEventListener("click", debounce());
+		button.addEventListener("click", debounce(5000));
 
-		function debounce() {
-			let count = 0;
+		function debounce(delay) {
 			let id;
 
 			return () => {
-				if (count !== 0) {
+				if (id) {
 					clearTimeout(id);
 				}
 				id = setTimeout( () => {
 					console.log("clicked");
-					count = 0;
-				}, 5000);
-				count++;
+				}, delay);
 			}
 		}
 
