@@ -1,0 +1,27 @@
+<html>
+	<body>
+		<button id="button">Click Me</button>
+	</body>
+	<script>
+		let button = document.getElementById("button");
+
+		button.addEventListener("click", debounce());
+
+		function debounce() {
+			let count = 0;
+			let id;
+
+			return () => {
+				if (count !== 0) {
+					clearTimeout(id);
+				}
+				id = setTimeout( () => {
+					console.log("clicked");
+					count = 0;
+				}, 5000);
+				count++;
+			}
+		}
+
+	</script>
+</html>
